@@ -9,15 +9,10 @@ package-lock.json
 ### Node.js ###
 
 # Log files
-*.log
+logs/
+
 
 # NPM
+node/
 node_modules/
 yarn.lock
-
-# Webpack
-build/
-dist/
-
-# Frontend Maven Plugin
-node/
