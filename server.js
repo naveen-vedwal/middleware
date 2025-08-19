@@ -2,6 +2,7 @@
 const express = require('express');
 const axios = require('axios');
 const rateLimit = require('express-rate-limit');
+const cors = require('cors');
 const { logger } = require('./utils/logger.js');
 
 // Load environment variables from .env file
@@ -10,6 +11,14 @@ require('dotenv').config();
 // Initialize Express app
 const app = express();
 app.use(express.json());
+
+// Enable CORS for all domains
+app.use(cors({ origin: '*' }))
+// app.use(cors({
+//   origin: ['https://yourfrontend.com', 'http://localhost:3000'],
+//   methods: ['GET', 'POST'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 
 // Define third-party service URLs
 const ENDPOINT_SF_API = process.env.ENDPOINT_SF_API;
